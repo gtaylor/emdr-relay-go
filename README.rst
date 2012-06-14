@@ -11,12 +11,17 @@ lower compared to our Python relay.
 .. _Go: http://golang.org/
 .. _EMDR: http://readthedocs.org/docs/eve-market-data-relay/
 
-
-Support
+Install
 -------
 
-emdr-relay-go is not currently supported officially at all. It is an
-experimental project.
+* Install Go_.
+* ``sudo go get github.com/alecthomas/gozmq``
+* ``sudo go get github.com/bradfitz/gomemcache``
+* From within your ``emdr-relay-go`` dir: ``go build emdr-relay-go.go``
+* You should now be able to run the relay: ``./emdr-relay-go``
+
+.. note:: You will need to send an email to gtaylor (at) gc-taylor (dot) 
+	com before your relay will be allowed to connect to the announcers.
 
 License
 -------
