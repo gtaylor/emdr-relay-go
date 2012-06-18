@@ -6,6 +6,7 @@ import (
 	"github.com/bradfitz/gomemcache/memcache"
 	"hash"
 	"hash/fnv"
+	"os"
 )
 
 func main() {
@@ -58,6 +59,8 @@ func main() {
 		} else {
 			// Something else unexpected happened.
 			println("MC ERROR:", mc_err.Error())
+			println(" Checksum:", checksum)
+			os.Exit(1)
 		}
 
 	}
