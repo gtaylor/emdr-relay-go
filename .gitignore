@@ -1,3 +1,6 @@
 *~
 *.tmp
 *.out
+.idea
+emdr-relay-go
+test.sh
