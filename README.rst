@@ -18,7 +18,7 @@ Install
 * Get a git clone of zeromq-2.x: ``git clone https://github.com/zeromq/zeromq2-x.git``
 * Install uuid-dev and libtool (Debian/Ubuntu package names)
 * cd into your cloned ``zeromq2-x`` dir, run ``./autogen.sh``, ``./configure``, ``make``, then ``sudo make install``
-* Install memcached
+* Install memcached, ``sudo apt-get install memcached``
 * ``sudo go get github.com/alecthomas/gozmq``
 * ``sudo go get github.com/bradfitz/gomemcache``
 * From within your ``emdr-relay-go`` dir: ``go build emdr-relay-go.go``
