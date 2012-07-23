@@ -14,9 +14,10 @@ lower compared to our Python relay.
 Install
 -------
 
-* Install Go_.
+* Install Go_. If you are on Debian or Ubuntu, you can ``sudo apt-get intall golang``
 * Get a git clone of zeromq-2.x: ``git clone https://github.com/zeromq/zeromq2-x.git``
-* Install uuid-dev and libtool (Debian/Ubuntu package names).
+* Install uuid-dev and libtool (Debian/Ubuntu package names)
+* cd into your cloned ``zeromq2-x`` dir, run ``./autogen.sh``, ``./configure``, ``make``, then ``sudo make install``
 * Install memcached
 * ``sudo go get github.com/alecthomas/gozmq``
 * ``sudo go get github.com/bradfitz/gomemcache``
