@@ -20,7 +20,7 @@ Install
 * cd into your cloned ``zeromq2-x`` dir, run ``./autogen.sh``, ``./configure``, ``make``, then ``sudo make install``
 * Install memcached, ``sudo apt-get install memcached``
 * ``sudo go get github.com/alecthomas/gozmq``
-* ``sudo go get github.com/bradfitz/gomemcache``
+* ``sudo go get github.com/bradfitz/gomemcache/memcache``
 * From within your ``emdr-relay-go`` dir: ``go build emdr-relay-go.go``
 * You should now be able to run the relay: ``./emdr-relay-go``
 
