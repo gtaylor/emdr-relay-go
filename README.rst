@@ -15,7 +15,7 @@ Install
 -------
 
 * Install Go_. If you are on Debian or Ubuntu, you can ``sudo apt-get intall golang``
-* Get a git clone of zeromq-2.x: ``git clone https://github.com/zeromq/zeromq2-x.git``
+* Install a recent zeromq 2.x. ZeroMQ 3.x may or may not work, so it's probably best not to use it just yet.
 * Install uuid-dev and libtool (Debian/Ubuntu package names)
 * cd into your cloned ``zeromq2-x`` dir, run ``./autogen.sh``, ``./configure``, ``make``, then ``sudo make install``
 * Install memcached, ``sudo apt-get install memcached``
