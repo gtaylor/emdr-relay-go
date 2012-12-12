@@ -17,7 +17,6 @@ Install
 * Install Go_. If you are on Debian or Ubuntu, you can ``sudo apt-get intall golang``
 * Install a recent zeromq 2.x. ZeroMQ 3.x may or may not work, so it's probably best not to use it just yet.
 * Install uuid-dev, libtool, and mercurial (Debian/Ubuntu package names)
-* cd into your cloned ``zeromq2-x`` dir, run ``./autogen.sh``, ``./configure``, ``make``, then ``sudo make install``
 * ``sudo go get github.com/alecthomas/gozmq``
 * ``sudo go get code.google.com/p/vitess/go/cache``
 * From within your ``emdr-relay-go`` dir: ``go build emdr-relay-go.go``
