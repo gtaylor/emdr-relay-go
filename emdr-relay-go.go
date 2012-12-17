@@ -22,7 +22,7 @@ func (self *CacheValue) Size() int {
 }
 
 func main() {
-	cache := cache.NewLRUCache(cache_value_size * 100000)
+	cache := cache.NewLRUCache(cache_value_size * 1000)
 
 	context, _ := zmq.NewContext()
 
