@@ -1,7 +1,7 @@
 package main
 
 import (
-    cache "code.google.com/p/vitess/go/cache"
+	cache "code.google.com/p/vitess/go/cache"
 	"fmt"
 	zmq "github.com/alecthomas/gozmq"
 	"hash"
@@ -36,10 +36,10 @@ func main() {
 	sender.Bind("tcp://0.0.0.0:8050")
 
 	cache_duration, err := time.ParseDuration("5m")
-    if err != nil {
-        println(err.Error())
-        os.Exit(1)
-    }
+	if err != nil {
+		println(err.Error())
+		os.Exit(1)
+	}
 
 	println("Listening on port 8050...")
 
