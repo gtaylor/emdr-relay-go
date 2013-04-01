@@ -1,0 +1,1 @@
+supervisorctl restart emdr_relay_go
