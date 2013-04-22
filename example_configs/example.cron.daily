@@ -1,1 +1,2 @@
-supervisorctl restart emdr_relay_go
+#!/bin/bash -l
+supervisorctl restart emdr_relay_go > /dev/null
