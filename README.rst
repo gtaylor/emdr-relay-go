@@ -17,7 +17,7 @@ Install
 * Install Go_. If you are on Debian or Ubuntu, you can ``sudo apt-get intall golang``
 * Install a recent ZeroMQ 2.x or ZeroMQ 3.x.
 * Install uuid-dev, libtool, and mercurial (Debian/Ubuntu package names)
-* ``sudo go get github.com/alecthomas/gozmq``
+* ``sudo go get github.com/alecthomas/gozmq`` (for ZeroMQ 3.x: ``sudo go get -tags zmq_3_x github.com/alecthomas/gozmq``)
 * ``sudo go get code.google.com/p/vitess/go/cache``
 * From within your ``emdr-relay-go`` dir: ``go build emdr-relay-go.go``
 * You should now be able to run the relay: ``./emdr-relay-go``
