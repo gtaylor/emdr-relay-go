@@ -21,6 +21,10 @@ Install
 * ``sudo go get code.google.com/p/vitess/go/cache``
 * From within your ``emdr-relay-go`` dir: ``go build emdr-relay-go.go``
 * You should now be able to run the relay: ``./emdr-relay-go``
+* Before we can list you, your relay will need to be running under a process 
+  supervisor like Runit, supervisord, systemd, upstart, or something similar.
+* You'll also want to restart your relay process daily. Sometimes ZeroMQ gets
+  in a funk, or doesn't pick up an upstream DNS change.
 
 .. note:: You will need to send an email to gtaylor (at) gc-taylor (dot) 
 	com before your relay will be allowed to connect to the announcers.
