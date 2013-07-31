@@ -1,7 +1,7 @@
 emdr-relay-go
 =============
 
-:Status: Experimentation
+:Status: Stable
 :Author: Greg Taylor
 :License: BSD
 
