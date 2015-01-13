@@ -1,7 +1,7 @@
 emdr-relay-go
 =============
 
-:Version: 1.0
+:Version: 1.1
 :Status: Stable
 :Author: Greg Taylor
 :License: BSD
@@ -25,6 +25,13 @@ Install (directly on your machine)
 
 Changes
 -------
+
+1.1
+^^^
+
+* Added a periodic exiter. The relay will now exit every 12 hours to force
+  a consistent restart. **If you don't have a process supervisor, your relay
+  won't come back up!**
 
 1.0
 ^^^
