@@ -1,44 +1,43 @@
 emdr-relay-go
 =============
 
+:Version: 1.0
 :Status: Stable
 :Author: Greg Taylor
 :License: BSD
 
-This is an EMDR_ gateway written in Go_. Resource consumption is markedly
-lower compared to our Python relay.
+This is the EMDR_ relay, written in Go_. If you are wanting to run a relay
+of your own (or contribute changes), this is the place!
 
 Install (in a Docker container)
 -------------------------------
 
-* Install Docker_.
-* Run: ``docker run --restart=always -p 8050:8050 gtaylor/emdr-relay-go``
-* Make sure you configure your container to start when your machine does:
-  https://docs.docker.com/articles/host_integration/
-* You'll also want to restart your relay process daily. Sometimes ZeroMQ gets
-  in a funk, or doesn't pick up an upstream DNS change.
+This is the recommended installation method. It should be a quick and easy
+process for most.
 
-.. note:: You will need to send an email to gtaylor (at) gc-taylor (dot)
-	com before your relay will be allowed to connect to both announcers
-	(primary AND secondary).
+* Install Docker_.
+* Head on over to the `Docker Hub repo`_ and read the instructions.
 
 Install (directly on your machine)
 ----------------------------------
 
-* Install Go_. If you are on Debian or Ubuntu, you can ``sudo apt-get intall golang``
-* Install a recent ZeroMQ_ 4.x.
-* Install uuid-dev, libtool, and mercurial (Debian/Ubuntu package names)
-* ``sudo go get github.com/pebbe/zmq4``
-* From within your ``emdr-relay-go`` dir: ``go build emdr-relay-go.go``
-* You should now be able to run the relay: ``./emdr-relay-go``
-* Before we can list you, your relay will need to be running under a process 
-  supervisor like Runit, supervisord, systemd, upstart, or something similar.
-* You'll also want to restart your relay process daily. Sometimes ZeroMQ gets
-  in a funk, or doesn't pick up an upstream DNS change.
+* See our `Direct Install`_ instructions.
 
-.. note:: You will need to send an email to gtaylor (at) gc-taylor (dot) 
-	com before your relay will be allowed to connect to both announcers
-	(primary AND secondary).
+Changes
+-------
+
+1.0
+^^^
+
+* **Now requires ZeroMQ 4.x.**
+* Changed ZeroMQ_ bindings to pebbe/zmq4.
+* Dockerized release.
+
+0.1
+^^^
+
+* Initial experimental release.
+
 
 License
 -------
@@ -50,3 +49,5 @@ A copy of the BSD License may be found in the repository.
 .. _Go: http://golang.org/
 .. _EMDR: http://readthedocs.org/docs/eve-market-data-relay/
 .. _Docker: https://docs.docker.com/installation/#installation
+.. _Docker Hub repo: https://registry.hub.docker.com/u/gtaylor/emdr-relay-go/
+.. _Direct Install: https://github.com/gtaylor/emdr-relay-go/wiki/Direct-Installation-Instructions

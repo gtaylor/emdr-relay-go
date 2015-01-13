@@ -27,6 +27,7 @@ func (self *CacheValue) Size() int {
 }
 
 func main() {
+	println("Starting emdr-relay-go 1.0...")
 	cache := cache.NewLRUCache(cache_size_limit)
 
 	receiver, _ := zmq.NewSocket(zmq.SUB)
@@ -39,9 +40,9 @@ func main() {
 	sender.Bind("tcp://*:8050")
 	defer sender.Close()
 
+	println("Listening on port 8050.")
 	//  Ensure subscriber connection has time to complete
 	time.Sleep(time.Second)
-	println("Listening on port 8050...")
 
 	for {
 		msg, zmq_err := receiver.Recv(0)
