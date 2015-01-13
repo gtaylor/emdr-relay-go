@@ -1,12 +1,13 @@
 package main
 
 import (
-	cache "code.google.com/p/vitess/go/cache"
+	cache "github.com/gtaylor/emdr-relay-go/cache"
 	"fmt"
-	zmq "github.com/alecthomas/gozmq"
+	zmq "github.com/pebbe/zmq4"
 	"hash"
 	"hash/fnv"
 	"unsafe"
+	"time"
 )
 
 // The presence of the cache value is all we need, so keep this super simple.
@@ -15,7 +16,7 @@ type CacheValue struct {
 }
 
 // Calculate the size (in bytes) of our struct.
-const cache_value_size = uint64(unsafe.Sizeof(CacheValue{}))
+const cache_value_size = int64(unsafe.Sizeof(CacheValue{}))
 
 // Determines the max cache size, in bytes.
 const cache_size_limit = cache_value_size * 1000
@@ -28,25 +29,30 @@ func (self *CacheValue) Size() int {
 func main() {
 	cache := cache.NewLRUCache(cache_size_limit)
 
-	context, _ := zmq.NewContext()
-	receiver, _ := context.NewSocket(zmq.SUB)
-	receiver.SetSockOptString(zmq.SUBSCRIBE, "")
-	receiver.Connect("tcp://master.eve-emdr.com:8050")
+	receiver, _ := zmq.NewSocket(zmq.SUB)
+	//receiver.Connect("tcp://master.eve-emdr.com:8050")
 	receiver.Connect("tcp://secondary.eve-emdr.com:8050")
-	sender, _ := context.NewSocket(zmq.PUB)
-	sender.Bind("tcp://0.0.0.0:8050")
+	//defer receiver.Close()
+
+	//sender, _ := zmq.NewSocket(zmq.PUB)
+	//sender.Bind("tcp://*:8050")
+	//defer sender.Close()
+
+	//  Ensure subscriber connection has time to complete
+	time.Sleep(time.Second)
 
 	println("Listening on port 8050...")
 
 	for {
+		println("Recving")
 		msg, zmq_err := receiver.Recv(0)
-
 		if zmq_err != nil {
 			println("RECV ERROR:", zmq_err.Error())
 		}
+		println("Message")
 
 		var h hash.Hash = fnv.New32()
-		h.Write(msg)
+		h.Write([]byte(msg))
 
 		checksum := h.Sum([]byte{})
 		cache_key := fmt.Sprintf("%x", checksum)
@@ -63,8 +69,9 @@ func main() {
 		// Insert the cache entry to prevent future re-sends of this message.
 		cache.Set(cache_key, cache_item)
 
+		println("Sending")
 		// A cache miss means that the incoming message is not a dupe.
 		// Send the message to subscribers.
-		sender.Send(msg, 0)
+		//sender.Send(msg[0], 0)
 	}
 }
